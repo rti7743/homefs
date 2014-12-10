@@ -84,7 +84,9 @@ umount /mnt
 
 ##21世紀にもなってコマンドラインは嫌ですか？
 Explorerでも表示できます。
+
 ![Explorer1](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w2.jpg)
+
 ![Explorer2](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w3.jpg)
 
 
