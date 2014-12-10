@@ -4,7 +4,7 @@
 #ŠT—v
 ‰Æ‚ğmount‚µ‚Ü‚·B
 
-![ƒƒS](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/icon.jpg)
+![ƒƒS](/homefs/master/docimage/icon.jpg)
 
  
  
@@ -13,9 +13,11 @@
  
 
 #‰½Œ¾‚Á‚Ä‚¢‚é‚ñ‚¾‚±‚ÌlEEE
+
 ‰Æ‚ğƒtƒ@ƒCƒ‹ƒVƒXƒeƒ€‚Æ‚µ‚Ämount‚µ‚Ü‚·B
 
 *Linux(fusefs)*
+
 ‰Æ‚ğ/mnt‚Émount‚µ‚Ü‚·B
 ```
 ./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt -o debug
@@ -23,6 +25,7 @@
 
 
 *Windows(dokan)*
+
 ‰Æ‚ğm:ƒhƒ‰ƒCƒu‚Émount‚µ‚Ü‚·B
 ```
 homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o debug
@@ -139,11 +142,13 @@ http://rti-giken.jp/
 ŠÂ‹«‚ğì‚è‚Ü‚·B
 
 *Linux(fusefs)*
+
 fusefs‚Æopenssl‚Æg++‚ğ“ü‚ê‚Ü‚·B
 (ƒ\[ƒXƒR[ƒh‚É‚ ‚éopenssl‚Íwindows—p‚É’u‚¢‚Ä‚¢‚Ü‚·Blinux‚Å‚ÍƒVƒXƒeƒ€‚Ìopenssl‚ğ—˜—p‚µ‚Ü‚·B)
 
 
 *Windows(dokan)*
+
 dokan‚ğ“ü‚ê‚Ü‚·B
 VS2010ˆÈ~‚ğ“ü‚ê‚Ü‚·B
 
@@ -152,10 +157,12 @@ VS2010ˆÈ~‚ğ“ü‚ê‚Ü‚·B
 ƒRƒ“ƒpƒCƒ‹‚µ‚Ü‚·B
 
 *Linux(fusefs)*
+
 make‚ÅƒRƒ“ƒpƒCƒ‹‚µ‚Ü‚·B
 
 
 *Windows(dokan)*
+
 VS2010ˆÈ~‚Å homefs.sln ‚ğŠJ‚¢‚ÄAF5‚ğ‰Ÿ‚µ‚Äƒrƒ‹ƒh‚µ‚Ü‚·B
 
 
@@ -227,5 +234,5 @@ homefs‚ÍuNYSLvAu‚í‚Á‚Ó‚é‚í‚Á‚Ó‚é‚Æ¥‚¦‚évAuMITv‚Æ‚©‚Æu‚»‚Ì‘¼‚·‚×‚Ä‚Ìƒ‰ƒ
 
 
 #ì‚Á‚½l
-rti7743  / @super_rti
+rti7743  / [@super_rti](https://twitter.com/super_rti)
 
