@@ -100,20 +100,27 @@ Explorerでも表示できます。
 
 
 音声認識によるホームコントローラーであるフューチャーホームコントローラー
+
 http://rti-giken.jp/
 
+
 fusefs(linux)
+
 http://fuse.sourceforge.net/
 
+
 dokan(windows)
+
 http://dokan-dev.net/en/
+
 
 
 #遊び方
 1.
-フューチャーホームコントローラーを買います。
+家電操作するためにフューチャーホームコントローラーを買ってきます。
 ![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/fhc.jpg)
 
+http://rti-giken.jp/
 
 
 2.
