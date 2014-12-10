@@ -15,26 +15,27 @@
 #何言っているんだこの人・・・
 家をファイルシステムとしてmountします。
 
-###Linux(fusefs)
+*Linux(fusefs)*
 家を/mntにmountします。
 ```
 ./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt -o debug
 ```
 
 
-###Windows(dokan)
+*Windows(dokan)*
 家をm:ドライブにmountします。
 ```
 homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o debug
 ```
 
 
+#家をファイルシステム化するのです。
 mountしたあとは、ls(windowsだとdir) や echo 、 cat(windowsだとtype)で家にアクセスできます。
 
 
 ```
 mountして、
-./homefs 192.168.10.21@webapi_41dff0fca1d89430c1ef485f32fd8ccbf4f2f90f /mnt/
+./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt/
 ```
 
 
@@ -137,12 +138,12 @@ http://rti-giken.jp/
 ##3.
 環境を作ります。
 
-Linux(fusefs)
+*Linux(fusefs)*
 fusefsとopensslとg++を入れます。
 (ソースコードにあるopensslはwindows用に置いています。linuxではシステムのopensslを利用します。)
 
 
-Windows(dokan)
+*Windows(dokan)*
 dokanを入れます。
 VS2010以降を入れます。
 
@@ -150,11 +151,11 @@ VS2010以降を入れます。
 ##4.
 コンパイルします。
 
-Linux(fusefs)
+*Linux(fusefs)*
 makeでコンパイルします。
 
 
-Windows(dokan)
+*Windows(dokan)*
 VS2010以降で homefs.sln を開いて、F5を押してビルドします。
 
 
@@ -187,13 +188,13 @@ homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o de
 ##8.
 飽きたらumountしましょう。
 
-###Linux(fuse)
+*Linux(fuse)*
 ```
 umount /mnt
 ```
 
 
-###Windows(dokan)
+*Windows(dokan)*
 ```
 dokanctl.exe /u m
 ```
