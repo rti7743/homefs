@@ -9,14 +9,14 @@
 
 
 
-家をmountして、ファイルシステム化するソフトウェアです。
-WindowsとLinuxに対応しています。
 
 
 
-#何言っているんだこの人・・・
+#何言っているんだ・・・
 
 家をファイルシステムとしてmountします。
+WindowsとLinuxに対応しています。
+
 
 *Linux(fusefs)*
 
@@ -34,7 +34,7 @@ homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o de
 ```
 
 
-#家をファイルシステム化するのです。
+#家をファイルシステム化します。
 mountしたあとは、ls(windowsだとdir) や echo 、 cat(windowsだとtype)で家にアクセスできます。
 
 
