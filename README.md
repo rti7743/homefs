@@ -1,24 +1,21 @@
--��mount- homefs
+-家mount- homefs
 =============================
 
-#�T�v
-�Ƃ�mount���܂��B
+#概要
+家をmountします。
 
-![���S](/homefs/master/docimage/icon.jpg)
+![ロゴ](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/icon.jpg)
 
- 
- 
- 
- 
- 
 
-#�������Ă���񂾂��̐l�E�E�E
 
-�Ƃ��t�@�C���V�X�e���Ƃ���mount���܂��B
+
+#何言っているんだこの人・・・
+
+家をファイルシステムとしてmountします。
 
 *Linux(fusefs)*
 
-�Ƃ�/mnt��mount���܂��B
+家を/mntにmountします。
 ```
 ./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt -o debug
 ```
@@ -26,89 +23,89 @@
 
 *Windows(dokan)*
 
-�Ƃ�m:�h���C�u��mount���܂��B
+家をm:ドライブにmountします。
 ```
 homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o debug
 ```
 
 
-#�Ƃ��t�@�C���V�X�e��������̂ł��B
-mount�������Ƃ́Als(windows����dir) �� echo �A cat(windows����type)�ŉƂɃA�N�Z�X�ł��܂��B
+#家をファイルシステム化するのです。
+mountしたあとは、ls(windowsだとdir) や echo 、 cat(windowsだとtype)で家にアクセスできます。
 
 
 ```
-mount���āA
+mountして、
 ./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt/
 ```
 
 
-ls �ŉƓd���\������܂��A
+ls で家電が表示されます、
 ```
 ls -la /mnt/
-drwxr-xr-x  5 root root    0  1��  1  1970 .
-drwxr-xr-x 23 root root 4096 12��  8 15:39 ..
-drwxr-xr-x  7 root root    0  1��  1  1970 �G�A�R��
-drwxr-xr-x  4 root root    0  1��  1  1970 �Ɩ�
-drwxr-xr-x  4 root root    0  1��  1  1970 ��@
+drwxr-xr-x  5 root root    0  1月  1  1970 .
+drwxr-xr-x 23 root root 4096 12月  8 15:39 ..
+drwxr-xr-x  7 root root    0  1月  1  1970 エアコン
+drwxr-xr-x  4 root root    0  1月  1  1970 照明
+drwxr-xr-x  4 root root    0  1月  1  1970 扇風機
 ```
 
 
-�Ɠd�f�B���N�g���̒��ɂ́A���얼������܂��B
+家電ディレクトリの中には、動作名があります。
 ```
-ls -la /mnt/�Ɩ�
-drwxr-xr-x 4 root root 0  1��  1  1970 .
-drwxr-xr-x 5 root root 0  1��  1  1970 ..
--rwxr--r-- 1 root root 9  1��  1  1970 .status
--rwxr--r-- 1 root root 0  1��  1  1970 ����
--rwxr--r-- 1 root root 1  1��  1  1970 ����
-```
-
-
-��Ԃ�1��on�Ƃ��̕�������������ނƁA���̏�ԂɂȂ�܂��B
-�Ⴆ�΁A�Ɩ��������ɂ́A���̂悤�ɂ��܂��B
-```
-echo 1 >/mnt/�Ɩ�/����
+ls -la /mnt/照明
+drwxr-xr-x 4 root root 0  1月  1  1970 .
+drwxr-xr-x 5 root root 0  1月  1  1970 ..
+-rwxr--r-- 1 root root 9  1月  1  1970 .status
+-rwxr--r-- 1 root root 0  1月  1  1970 けす
+-rwxr--r-- 1 root root 1  1月  1  1970 つける
 ```
 
 
-���̏�Ԃ́A.status������΂킩��܂��B
+状態に1やonとかの文字列を書き込むと、その状態になります。
+例えば、照明を消すには、このようにします。
 ```
-cat /mnt/�Ɩ�/.status
-
-����
-```
-
-
-.status�ɏ�Ԗ��𒼐ڏ������ނ��Ƃ��ł��܂��B
-```
-echo ���� > /mnt/�Ɩ�/.status
+echo 1 >/mnt/照明/けす
 ```
 
 
-�V�яI�������Aumount���܂��B
+今の状態は、.statusを見ればわかります。
+```
+cat /mnt/照明/.status
+
+けす
+```
+
+
+.statusに状態名を直接書き込むこともできます。
+```
+echo つける > /mnt/照明/.status
+```
+
+
+遊び終わったら、umountします。
 ```
 umount /mnt
 ```
 
 
-##21���I�ɂ��Ȃ��ăR�}���h���C���͌��ł����H
-�������AExplorer�ł��\���ł��܂��B
+##21世紀にもなってコマンドラインは嫌ですか？
+もちろん、Explorerでも表示できます。
 
 ![Explorer1](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w2.jpg)
 
 ![Explorer2](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w3.jpg)
 
 
-�t�@�C�����������Ƃ��̃G�f�B�^�ŊJ���āActrl+s �ŕۑ�����ƁA�Ɠd�������܂��B
-![������](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w4.jpg)
+ファイルをメモ帳とかのエディタで開いて、ctrl+s で保存すると、家電が動きます。
+![メモ帳](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w4.jpg)
 
 
 
-#�K�v�Ȃ���
-���s����ɂ́A�u�����F���ɂ��z�[���R���g���[���[�ł���t���[�`���[�z�[���R���g���[���[�v�ƁALinux�Ȃ�ufusefs�v�AWindows�Ȃ�udokan�v���K�v�ł��B
+#必要なもの
+実行するには、「音声認識によるホームコントローラーであるフューチャーホームコントローラー」と、Linuxなら「fusefs」、Windowsなら「dokan」が必要です。
 
 
-�����F���ɂ��z�[���R���g���[���[�ł���t���[�`���[�z�[���R���g���[���[
+音声認識によるホームコントローラーであるフューチャーホームコントローラー
 
 http://rti-giken.jp/
 
@@ -124,55 +121,55 @@ http://dokan-dev.net/en/
 
 
 
-#�V�ѕ�
+#遊び方
 ##1.
-�Ɠd���삷�邽�߂Ƀt���[�`���[�z�[���R���g���[���[�𔃂��Ă��܂��B
+家電操作するためにフューチャーホームコントローラーを買ってきます。
 ![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/fhc.jpg)
 
 http://rti-giken.jp/
 
 
 ##2.
-�\�[�X�R�[�h���_�E�����[�h�Ƃ�git clone�Ƃ��Ȃ�ł��������玝���Ă��܂��B
+ソースコードをダウンロードとかgit cloneとかなんでもいいから持ってきます。
 
-���̃v���O�����́A1�\�[�X�ŕ����v���b�g�t�H�[���Ή��ł��B
+このプログラムは、1ソースで複数プラットフォーム対応です。
 
 
 ##3.
-�������܂��B
+環境を作ります。
 
 *Linux(fusefs)*
 
-fusefs��openssl��g++�����܂��B
-(�\�[�X�R�[�h�ɂ���openssl��windows�p�ɒu���Ă��܂��Blinux�ł̓V�X�e����openssl�𗘗p���܂��B)
+fusefsとopensslとg++を入れます。
+(ソースコードにあるopensslはwindows用に置いています。linuxではシステムのopensslを利用します。)
 
 
 *Windows(dokan)*
 
-dokan�����܂��B
-VS2010�ȍ~�����܂��B
+dokanを入れます。
+VS2010以降を入れます。
 
 
 ##4.
-�R���p�C�����܂��B
+コンパイルします。
 
 *Linux(fusefs)*
 
-make�ŃR���p�C�����܂��B
+makeでコンパイルします。
 
 
 *Windows(dokan)*
 
-VS2010�ȍ~�� homefs.sln ���J���āAF5�������ăr���h���܂��B
+VS2010以降で homefs.sln を開いて、F5を押してビルドします。
 
 
 ##5.
-�t���[�`���[�z�[���R���g���[���[��webapi��ʂ��apikey���擾���܂��B
+フューチャーホームコントローラーのwebapi画面よりapikeyを取得します。
 ![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/f1.jpg)
 
 
 ##6.
-mount���܂�
+mountします
 
 ###Linux(fuse)
 ```
@@ -188,12 +185,12 @@ homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o de
 
 
 ##7.
-�Ɠd�𑀍삵���肵�ėV�т܂��B
+家電を操作したりして遊びます。
 
 
 
 ##8.
-�O������umount���܂��傤�B
+飽きたらumountしましょう。
 
 *Linux(fuse)*
 ```
@@ -208,31 +205,35 @@ dokanctl.exe /u m
 
 
 ##9.
-�ѐH���Ȃ���A�A�j���ł����ĐQ�܂��B
+飯食いながら、アニメでも見て寝ます。
 
 
 
-#���̃\�t�g�E�F�A���ĈӖ�����́H
-�Ȃ��ł��B
+#このソフトウェアって意味あるの？
+ないです。
 
-�Ɠd����ɗ��p���Ă���t���[�`���[�z�[���R���g���[���[�́A�����F��������܂��̂ŁA�t�@�C���ő��삷��ɂ���������A�u�R���s���[�^�A�d�C�����āv�Ƃ���ׂ����ق����y�ł��B�X�}�z��^�u���b�g�ł�����ł��܂����B
-�����A���ł��t�@�C���o�R�ő��삷��̂��֗��ł���΁APlan9�͔e��OS�ɂȂ��Ă���ł��傤�B
-���ɂ����Ȃ��Ă��Ȃ��Ƃ������Ƃ́A�t�@�C���ŕ\��������̂������Ă������(/proc�Ƃ�)�ƁA�����Ă��Ȃ����̂�����Ƃ������Ƃł��B
-���������߂��͗ǂ��Ȃ��̂ł��B
-�n���c�C���e�[���͖G����������܂��񂪁A�����V���[�g�Ń����o�o�A�Ő��^�r�b�`�Ńh�W���q���C�h���{�͖G���邩�ǂ����킩��Ȃ��Ƃ������Ƃł��B
+家電操作に利用しているフューチャーホームコントローラーは、音声認識がありますので、ファイルで操作する暇があったら、「コンピュータ、電気消して」としゃべったほうが楽です。スマホやタブレットでも操作できますし。
+もし、何でもファイル経由で操作するのが便利であれば、Plan9は覇権OSになっているでしょう。
+現にそうなっていないということは、ファイルで表現するものが向いているもの(/procとか)と、向いていないものがあるということです。
+何事もやり過ぎは良くないのです。
+貧乳ツインテールは萌えかもしれませんが、巨乳ショートでロリババアで清楚ビッチでドジっ子メイドロボは萌えるかどうかわからないということです。
 
 
 
-#���C�Z���X
-�ȉ��̃\�t�g�E�F�A�𗘗p���Ă��܂��B
+#ライセンス
+以下のソフトウェアを利用しています。
+
 openssl
+
 dokan
+
 fusefs
 
-homefs�́uNYSL�v�A�u����ӂ����ӂ�Ə�����v�A�uMIT�v�Ƃ��Ɓu���̑����ׂẴ��C�Z���X�v�Ƃ̃}���`���C�Z���X�ł��B
-�D���ȃ��C�Z���X��I��ł����R�ɂ��g���������B
+
+homefsは「NYSL」、「わっふるわっふると唱える」、「MIT」とかと「その他すべてのライセンス」とのマルチライセンスです。
+好きなライセンスを選んでご自由にお使ください。
 
 
-#������l
+#作った人
 rti7743  / [@super_rti](https://twitter.com/super_rti)
 
