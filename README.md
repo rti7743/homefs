@@ -116,37 +116,49 @@ http://dokan-dev.net/en/
 
 
 #遊び方
-1.
+##1.
 家電操作するためにフューチャーホームコントローラーを買ってきます。
 ![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/fhc.jpg)
 
 http://rti-giken.jp/
 
 
-2.
+##2.
 ソースコードをダウンロードとかgit cloneとかなんでもいいから持ってきます。
-プログラムは、1ソースで複数プラットフォーム対応です。
+
+このプログラムは、1ソースで複数プラットフォーム対応です。
 
 
-3.
+##3.
 環境を作ります。
 
 Linux(fusefs)
 fusefsとopensslとg++を入れます。
 (ソースコードにあるopensslはwindows用に置いています。linuxではシステムのopensslを利用します。)
 
+
 Windows(dokan)
 dokanを入れます。
 VS2010以降を入れます。
 
-VS2010以降で homefs.sln を開いて、F5を押します。
 
-4.
+##4.
+コンパイルします。
+
+Linux(fusefs)
+makeでコンパイルします。
+
+
+Windows(dokan)
+VS2010以降で homefs.sln を開いて、F5を押してビルドします。
+
+
+##5.
 フューチャーホームコントローラーのwebapi画面よりapikeyを取得します。
 ![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/f1.jpg)
 
 
-5.
+##6.
 mountします
 
 ###Linux(fuse)
@@ -162,23 +174,28 @@ homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o de
 
 
 
-6.
-書き込んで遊びます。
+##7.
+家電を操作したりして遊びます。
 
 
-7.
+
+##8.
 飽きたらumountしましょう。
 
 ###Linux(fuse)
+```
 umount /mnt
+```
 
 
 ###Windows(dokan)
+```
 dokanctl.exe /u m
+```
 
 
-8.
-飯食いながら、アニメ見て寝ます。
+##9.
+飯食いながら、アニメでも見て寝ます。
 
 
 
