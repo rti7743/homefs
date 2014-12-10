@@ -4,19 +4,24 @@
 #概要
 家をmountします。
 
+![ロゴ](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/icon.jpg)
 
 
 #何言っているんだこの人・・・
 家をファイルシステムとしてmountします。
 
 ###Linux(fusefs)
-//家を/mntにmountします。
+家を/mntにmountします。
+```
 ./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt -o debug
+```
 
 
 ###Windows(dokan)
-//家をm:ドライブにmountします。
+家をm:ドライブにmountします。
+```
 homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o debug
+```
 
 
 mountしたあとは、ls(windowsだとdir) や echo 、 cat(windowsだとtype)で家にアクセスできます。
@@ -79,7 +84,13 @@ umount /mnt
 
 ##21世紀にもなってコマンドラインは嫌ですか？
 Explorerでも表示できます。
+![Explorer1](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w2.jpg)
+![Explorer2](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w3.jpg)
+
+
 ファイルをメモ帳とかのエディタで開いて、ctrl+s で保存すると、家電が動きます。
+![メモ帳](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w4.jpg)
+
 
 
 #必要なもの
@@ -99,6 +110,8 @@ http://dokan-dev.net/en/
 #遊び方
 1.
 フューチャーホームコントローラーを買います。
+![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/fhc.jpg)
+
 
 
 2.
@@ -121,16 +134,23 @@ VS2010以降で homefs.sln を開いて、F5を押します。
 
 4.
 フューチャーホームコントローラーのwebapi画面よりapikeyを取得します。
+![FHC](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/f1.jpg)
+
 
 5.
 mountします
 
 ###Linux(fuse)
+```
 ./homefs 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /mnt -o debug
+```
 
 
 ###Windows(dokan)
+```
 homefs.exe 192.168.10.21@webapi_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX m -o debug
+```
+
 
 
 6.

@@ -8,8 +8,6 @@
 #include <iostream>
 #include <sstream>
 
-//UTF-8 BOMいれた...
-//
 class XLException : public std::exception {
 protected:
 	std::string message; //

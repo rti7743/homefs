@@ -1,5 +1,4 @@
-﻿//MITライセンスでライセンスされています
-#include "common.h"
+﻿#include "common.h"
 #include "XLUrlParser.h"
 
 //USE_TEST(XLUrlParser)
