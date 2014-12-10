@@ -6,14 +6,11 @@
 
 ![ロゴ](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/icon.jpg)
 
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
 
 #何言っているんだこの人・・・
 家をファイルシステムとしてmountします。
@@ -91,7 +88,7 @@ umount /mnt
 
 
 ##21世紀にもなってコマンドラインは嫌ですか？
-Explorerでも表示できます。
+もちろん、Explorerでも表示できます。
 
 ![Explorer1](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/w2.jpg)
 
