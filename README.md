@@ -7,6 +7,14 @@
 ![ロゴ](https://raw.githubusercontent.com/rti7743/homefs/master/docimage/icon.jpg)
 
 
+
+
+
+
+
+
+
+
 #何言っているんだこの人・・・
 家をファイルシステムとしてmountします。
 
