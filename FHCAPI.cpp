@@ -163,47 +163,77 @@ void FHCAPI::parseJsonToMap(const std::string json,std::map<std::string,std::str
 //家電の名前一覧を返します
 void FHCAPI::api_getlist(std::vector<std::string>* outVec)
 {
-	std::string url = "http://" + this->host + "/api/elec/getlist?webapi_apikey=" + XLStringUtil::urlencode(_A2U(this->apikey));
-	std::string result = XLHttpSocket::Get(url);
-	result = _U2A(result);
-	std::vector<std::string> vec;
+	try
+	{
+		std::string url = "http://" + this->host + "/api/elec/getlist?webapi_apikey=" + XLStringUtil::urlencode(_A2U(this->apikey));
+		std::string result = XLHttpSocket::Get(url);
+		result = _U2A(result);
+		std::vector<std::string> vec;
 
-	parseJsonList(result,outVec);
+		parseJsonList(result,outVec);
+	}
+	catch(XLException& e)
+	{
+		printf("例外:api_getlist %s\n",e.getFullErrorMessage() );
+	}
 }
 
 
 //家電のステータスを返します
 void FHCAPI::api_getinfo(const std::string& name,std::map<std::string,std::string>* outMap)
 {
-	std::string url = "http://" + this->host + "/api/elec/getinfo?webapi_apikey=" + XLStringUtil::urlencode(_A2U(this->apikey)) + "&elec=" + XLStringUtil::urlencode(_A2U(name));
-	std::string result = XLHttpSocket::Get(url);
-	result = _U2A(result);
-	std::vector<std::string> vec;
+	try
+	{
+		std::string url = "http://" + this->host + "/api/elec/getinfo?webapi_apikey=" + XLStringUtil::urlencode(_A2U(this->apikey)) + "&elec=" + XLStringUtil::urlencode(_A2U(name));
+		std::string result = XLHttpSocket::Get(url);
+		result = _U2A(result);
+		std::vector<std::string> vec;
 
-	parseJsonToMap(result,outMap);
+		parseJsonToMap(result,outMap);
+	}
+	catch(XLException& e)
+	{
+		printf("例外:api_getinfo %s\n",e.getFullErrorMessage() );
+	}
 }
 
 //家電の状態一覧を返します
 void FHCAPI::api_getactionlist(const std::string& name,std::vector<std::string>* outVec)
 {
-	std::string url = "http://" + this->host + "/api/elec/getactionlist?webapi_apikey=" + XLStringUtil::urlencode(_A2U(this->apikey)) + "&elec=" + XLStringUtil::urlencode(_A2U(name));
-	std::string result = XLHttpSocket::Get(url);
-	result = _U2A(result);
+	try
+	{
+		std::string url = "http://" + this->host + "/api/elec/getactionlist?webapi_apikey=" + XLStringUtil::urlencode(_A2U(this->apikey)) + "&elec=" + XLStringUtil::urlencode(_A2U(name));
+		std::string result = XLHttpSocket::Get(url);
+		result = _U2A(result);
 
-	parseJsonList(result,outVec);
+		parseJsonList(result,outVec);
+	}
+	catch(XLException& e)
+	{
+		printf("例外:api_getactionlist %s\n",e.getFullErrorMessage() );
+	}
 }
 
 //家電をその状態にする.
 bool FHCAPI::fire(const std::string& elecname,const std::string& actionname) 
 {
-	std::string url = "http://" + this->host + "/api/elec/action?webapi_apikey=" + XLStringUtil::urlencode(this->apikey) + "&elec=" + XLStringUtil::urlencode(_A2U(elecname)) + "&action=" + XLStringUtil::urlencode(_A2U(actionname));
-	std::string result = XLHttpSocket::Get(url);
-	result = _U2A(result);
+	try
+	{
+		std::string url = "http://" + this->host + "/api/elec/action?webapi_apikey=" + XLStringUtil::urlencode(this->apikey) + "&elec=" + XLStringUtil::urlencode(_A2U(elecname)) + "&action=" + XLStringUtil::urlencode(_A2U(actionname));
+		std::string result = XLHttpSocket::Get(url);
+		result = _U2A(result);
 
-	std::map<std::string,std::string> map;
-	parseJsonToMap(result,&map);
+		std::map<std::string,std::string> map;
+		parseJsonToMap(result,&map);
 
-	return true;
+		return true;
+	}
+	catch(XLException& e)
+	{
+		printf("例外:fire %s\n",e.getFullErrorMessage() );
+		return false;
+	}
+	
 }
 
 void FHCAPI::freeElec()
