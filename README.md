@@ -142,8 +142,7 @@ http://rti-giken.jp/
 
 *Linux(fusefs)*
 
-fusefsとopensslとg++を入れます。
-(ソースコードにあるopensslはwindows用に置いています。linuxではシステムのopensslを利用します。)
+fusefsとg++を入れます。
 
 
 *Windows(dokan)*
@@ -227,8 +226,9 @@ dokanctl.exe /u m
 
 #ライセンス
 以下のソフトウェアを利用しています。
-openssl
+
 dokan
+
 fusefs
 
 

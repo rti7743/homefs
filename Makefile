@@ -15,7 +15,6 @@ $(CFLAGS) \
 `pkg-config fuse --cflags`
 
 LDFLAGS= \
-`pkg-config openssl --libs` \
 `pkg-config fuse --libs`
 
 

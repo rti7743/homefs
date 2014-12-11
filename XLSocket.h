@@ -36,11 +36,15 @@
 
 #endif
 
+//SSLをサポートするかどうか
+//#define USE_SSL_SUPPORT
+
+#if USE_SSL_SUPPORT
 	#include <openssl/crypto.h>
 	#include <openssl/ssl.h>
 	#include <openssl/err.h>
 	#include <openssl/rand.h>
-
+#endif
 
 
 class XLSocket  
@@ -160,10 +164,12 @@ protected:
 	 */
 	bool Connected;
 
+#if USE_SSL_SUPPORT
 	bool UseSSL;
 	//OpenSSL
 	SSL_CTX*	SSLContext;
 	SSL*		SSLhandle;
+#endif
 };
 
 #endif // !defined(AFX_XLSOCKET_H__137F6EB5_32A1_46CD_9CA7_EC6E9C6A6E6A__INCLUDED_)

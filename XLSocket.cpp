@@ -16,7 +16,9 @@
 	#include <iphlpapi.h>
 	#pragma comment(lib, "ws2_32.lib")
 	#pragma comment(lib, "IPHLPAPI.lib")
-	#pragma comment(lib, "openssl.lib")
+	#if USE_SSL_SUPPORT
+		#pragma comment(lib, "openssl.lib")
+	#endif
 
 #else
 	#include <sys/ioctl.h>
@@ -34,10 +36,12 @@ XLSocket::XLSocket()
 {
 	this->Socket = INVALID_SOCKET;
 	this->Connected = false;
+#if USE_SSL_SUPPORT
 	//SSL
 	this->UseSSL = false;
 	this->SSLContext = NULL;
 	this->SSLhandle = NULL;
+#endif
 }
 
 XLSocket::~XLSocket()
@@ -56,11 +60,12 @@ XLSocket::XLSocket(SOCKET inSocket)
 {
 	this->Socket = inSocket;
 	this->Connected = true;
+#if USE_SSL_SUPPORT
 	this->UseSSL = false;
 
 	this->SSLhandle = NULL;
 	this->SSLContext = NULL;
-
+#endif
 }
 
 
@@ -102,10 +107,13 @@ void XLSocket::CreateUDP(int timeout  )
 }
 void XLSocket::CreateSSL(int timeout  )
 {
+#if USE_SSL_SUPPORT
 	CreateLow(SOCK_STREAM , 0,timeout);
 	this->UseSSL = true;
+#else
+	throw XLException("SSLが無効になっています。 #define USE_SSL_SUPPORT を有効にしてください。");
+#endif
 }
-
 
 void XLSocket::Close()
 {
@@ -115,6 +123,7 @@ void XLSocket::Close()
 	}
 
 
+#if USE_SSL_SUPPORT
 	if (this->UseSSL)
 	{
 
@@ -129,7 +138,7 @@ void XLSocket::Close()
 		}
 
 	}
-
+#endif
 	::closesocket(this->Socket);
 	this->Socket = INVALID_SOCKET;
 
@@ -377,6 +386,7 @@ void XLSocket::Connect(const std::string &inHost , int inPort )
 
 	this->Connected = true;
 
+#if USE_SSL_SUPPORT
 	if (this->UseSSL)
 	{
 
@@ -414,6 +424,7 @@ void XLSocket::Connect(const std::string &inHost , int inPort )
 		}
 
 	}
+#endif
 }
 
 
@@ -478,13 +489,14 @@ XLSocket* XLSocket::Accept()
 	{
 		throw XLException("accept に失敗しました" + ErrorToMesage( WSAGetLastError() ) );
 	}
+#if USE_SSL_SUPPORT
 	if (this->UseSSL)
 	{
 
 		SSL_accept(this->SSLhandle);
 
 	}
-
+#endif
 	//新規に作成して返す
 	return new XLSocket(newSock);
 }
@@ -528,6 +540,7 @@ int XLSocket::Send( const std::string&  str )
 int XLSocket::Send( const char* inBuffer ,unsigned int inBufferLen  )
 {
 	unsigned int sended = 0;
+#if USE_SSL_SUPPORT
 	if (this->UseSSL)
 	{
 
@@ -546,6 +559,7 @@ int XLSocket::Send( const char* inBuffer ,unsigned int inBufferLen  )
 
 	}
 	else
+#endif
 	{
 		while(1)
 		{
@@ -565,6 +579,7 @@ int XLSocket::Send( const char* inBuffer ,unsigned int inBufferLen  )
 int XLSocket::Recv( char* outBuffer ,unsigned int inBufferLen )
 {
 	unsigned int recved = 0;
+#if USE_SSL_SUPPORT
 	if (this->UseSSL)
 	{
 		while(1)
@@ -586,6 +601,7 @@ int XLSocket::Recv( char* outBuffer ,unsigned int inBufferLen )
 
 	}
 	else
+#endif
 	{
 		while(1)
 		{
