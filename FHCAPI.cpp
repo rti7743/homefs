@@ -174,7 +174,7 @@ void FHCAPI::api_getlist(std::vector<std::string>* outVec)
 	}
 	catch(XLException& e)
 	{
-		printf("例外:api_getlist %s\n",e.getFullErrorMessage() );
+		printf("例外:api_getlist %s\n",e.getFullErrorMessage().c_str() );
 	}
 }
 
@@ -193,7 +193,7 @@ void FHCAPI::api_getinfo(const std::string& name,std::map<std::string,std::strin
 	}
 	catch(XLException& e)
 	{
-		printf("例外:api_getinfo %s\n",e.getFullErrorMessage() );
+		printf("例外:api_getinfo %s\n",e.getFullErrorMessage().c_str() );
 	}
 }
 
@@ -210,7 +210,7 @@ void FHCAPI::api_getactionlist(const std::string& name,std::vector<std::string>*
 	}
 	catch(XLException& e)
 	{
-		printf("例外:api_getactionlist %s\n",e.getFullErrorMessage() );
+		printf("例外:api_getactionlist %s\n",e.getFullErrorMessage().c_str() );
 	}
 }
 
@@ -230,7 +230,7 @@ bool FHCAPI::fire(const std::string& elecname,const std::string& actionname)
 	}
 	catch(XLException& e)
 	{
-		printf("例外:fire %s\n",e.getFullErrorMessage() );
+		printf("例外:fire %s\n",e.getFullErrorMessage().c_str() );
 		return false;
 	}
 	
